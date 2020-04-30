@@ -44,7 +44,7 @@ export default class Tab1 extends React.Component<{}, State> {
             onDidDismiss={this.hidePopover}
           >
             <IonToolbar>
-              <h4 className="centerButton"> New To-Do: </h4>
+              <h4> New To-Do: </h4>
             </IonToolbar>
             
             <NewChoreForm
@@ -53,8 +53,8 @@ export default class Tab1 extends React.Component<{}, State> {
               onChange={this.handleChoreChange}
             />
 
-            <div className="centerButton">
-              <IonButton className="subMaxWidth" expand="block" onClick={this.hidePopover}> Close </IonButton>
+            <div>
+              <IonButton expand="block" onClick={this.hidePopover}> Close </IonButton>
             </div> <br/>
           </IonPopover>
 

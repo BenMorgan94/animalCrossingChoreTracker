@@ -22,7 +22,7 @@ export const ChoreListItem: FunctionComponent<Props> = ({ chore, onDelete }) => 
             {chore.name}
           </IonCol>
           <IonCol>
-            <IonIcon onClick={onClick}/>
+            <IonIcon name="close" onClick={onClick}/>
           </IonCol>
         </IonRow>
       </IonGrid>

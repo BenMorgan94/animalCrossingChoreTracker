@@ -6,7 +6,7 @@ interface Props {
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     onAdd: (event: React.FormEvent<HTMLFormElement>) => void;
     chore: Chore;
- }
+}
 
 export const NewChoreForm: FunctionComponent<Props> = ({ onChange, onAdd }) => (
    <form onSubmit={onAdd}>
