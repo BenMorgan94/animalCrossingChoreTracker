@@ -1,4 +1,4 @@
 export interface Chore {
-    id: number;
+    key: number;
     name: string;
  }

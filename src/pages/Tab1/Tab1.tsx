@@ -14,7 +14,7 @@ interface State {
 export default class Tab1 extends React.Component<{}, State> {
   state = {
     newChore: {
-      id: 1,
+      key: 1,
       name: ""
     },
     
@@ -81,7 +81,7 @@ export default class Tab1 extends React.Component<{}, State> {
 
     this.setState(previousState => ({
       newChore: {
-        id: previousState.newChore.id + 1,
+        key: previousState.newChore.key + 1,
         name: ""
       },
       chores: [...previousState.chores, previousState.newChore]
@@ -100,7 +100,7 @@ export default class Tab1 extends React.Component<{}, State> {
   private deleteChore = (taskToDelete: Chore) => {
     this.setState(previousState => ({
       chores: [
-        ...previousState.chores.filter(chore => chore.id !== taskToDelete.id)
+        ...previousState.chores.filter(chore => chore.key !== taskToDelete.key)
       ]
     }));
   };

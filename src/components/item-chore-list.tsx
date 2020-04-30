@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 
 import { Chore } from '../interfaces/chore-interface';
-import { ChoreListItem } from "./item-chore";
+import { ChoreListItem } from "./item-chore-single";
 
 
 interface Props {
