@@ -1,0 +1,7 @@
+{
+  "name": "animalCrossingApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
