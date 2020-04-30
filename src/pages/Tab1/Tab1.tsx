@@ -5,7 +5,6 @@ import { Chore } from '../../interfaces/chore-interface';
 import { NewChoreForm } from "../../components/form-new-chore";
 import { ChoresList } from "../../components/item-chore-list";
 
-
 interface State {
   newChore: Chore;
   chores: Chore[];
