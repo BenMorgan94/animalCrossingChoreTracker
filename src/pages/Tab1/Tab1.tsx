@@ -44,7 +44,7 @@ export default class Tab1 extends React.Component<{}, State> {
             onDidDismiss={this.hidePopover}
           >
             <IonToolbar>
-              <h4> New To-Do: </h4>
+              <h4> New Chore: </h4>
             </IonToolbar>
             
             <NewChoreForm
@@ -58,25 +58,25 @@ export default class Tab1 extends React.Component<{}, State> {
             </div> <br/>
           </IonPopover>
 
-          <ChoresList chores={this.state.chores} onDelete={this.deleteChore} />
+          <ChoresList chores={this.state.chores} onDelete={this.deleteChore}/>
         </IonContent>
       </>
     );
   }
 
-  private showPopover = () => {
+  showPopover = () => {
     this.setState({
       showInputPopover: true,
     });
   }
 
-  private hidePopover = () => {
+  hidePopover = () => {
     this.setState({
       showInputPopover: false,
     });
   }
 
-  private addChore = (event: React.FormEvent<HTMLFormElement>) => {
+  addChore = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     this.setState(previousState => ({
@@ -88,7 +88,7 @@ export default class Tab1 extends React.Component<{}, State> {
     }));
   };
 
-  private handleChoreChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  handleChoreChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({
       newChore: {
         ...this.state.newChore,
@@ -97,7 +97,7 @@ export default class Tab1 extends React.Component<{}, State> {
     });
   };
 
-  private deleteChore = (taskToDelete: Chore) => {
+  deleteChore = (taskToDelete: Chore) => {
     this.setState(previousState => ({
       chores: [
         ...previousState.chores.filter(chore => chore.key !== taskToDelete.key)

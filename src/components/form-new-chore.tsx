@@ -12,7 +12,7 @@ export const NewChoreForm: FunctionComponent<Props> = ({ onChange, onAdd }) => (
    <form onSubmit={onAdd}>
       <IonGrid>
          <IonRow>
-            <input placeholder='Enter new to-do here:' onChange={onChange}/>
+            <input placeholder='Enter new chore here:' onChange={onChange}/>
          </IonRow> <br/>
          <IonRow>
             <IonButton fill='outline' type='submit'> Confirm </IonButton>
