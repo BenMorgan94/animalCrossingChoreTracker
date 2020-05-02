@@ -1,0 +1,8 @@
+.new-chore-button-row {
+    display: flex;
+    justify-content: center;
+}
+
+.confirm-button {
+    width: 11rem;
+}

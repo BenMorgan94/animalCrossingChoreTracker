@@ -7,8 +7,8 @@ import {
   IonToolbar,
   IonFab,
   IonFabButton,
-  IonButton,
   IonPopover,
+  IonIcon,
 } from "@ionic/react";
 
 import { Chore } from "../../interfaces/chore-interface";
@@ -57,21 +57,13 @@ export default class Tab1 extends React.Component<{}, State> {
             isOpen={this.state.showInputPopover}
             onDidDismiss={this.hidePopover}
           >
-            <IonToolbar>
-              <h4> New Chore: </h4>
-            </IonToolbar>
+            <IonIcon class="close-icon" name="close" onClick={this.hidePopover}/>
             <NewChoreForm
               chore={this.state.newChore}
               onAdd={this.addChore}
               onChange={this.handleChoreChange}
+              // class=""
             />
-            <div>
-              <IonButton expand="block" onClick={this.hidePopover}>
-                {" "}
-                Close{" "}
-              </IonButton>
-            </div>{" "}
-            <br />
           </IonPopover>
 
           <ChoresList chores={this.state.chores} onDelete={this.deleteChore} />

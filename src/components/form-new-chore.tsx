@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import './form-new-chore.css';
 import { Chore } from '../interfaces/chore-interface';
 import { IonGrid, IonRow, IonButton } from '@ionic/react';
 
@@ -14,8 +15,8 @@ export const NewChoreForm: FunctionComponent<Props> = ({ onChange, onAdd }) => (
          <IonRow>
             <input placeholder='Enter new chore here:' onChange={onChange}/>
          </IonRow> <br/>
-         <IonRow>
-            <IonButton fill='outline' type='submit'> Confirm </IonButton>
+         <IonRow class="new-chore-button-row">
+            <IonButton class="confirm-button" fill='solid' type='submit'> Confirm </IonButton>
          </IonRow>
       </IonGrid>
    </form>
