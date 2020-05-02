@@ -12,8 +12,8 @@ import {
 } from "@ionic/react";
 
 import { Chore } from "../../interfaces/chore-interface";
-import { NewChoreForm } from "../../components/form-new-chore";
-import { ChoresList } from "../../components/item-chore-list";
+import { NewChoreForm } from "../../components/form-new-chore/form-new-chore";
+import { ChoresList } from "../../components/item-chore-list/item-chore-list";
 
 interface State {
   newChore: Chore;
@@ -62,10 +62,10 @@ export default class Tab1 extends React.Component<{}, State> {
               chore={this.state.newChore}
               onAdd={this.addChore}
               onChange={this.handleChoreChange}
-              // class=""
             />
           </IonPopover>
-
+          <br />
+          <br />
           <ChoresList chores={this.state.chores} onDelete={this.deleteChore} />
         </IonContent>
       </>

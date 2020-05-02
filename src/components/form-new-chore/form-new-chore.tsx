@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import './form-new-chore.css';
-import { Chore } from '../interfaces/chore-interface';
+import { Chore } from '../../interfaces/chore-interface';
 import { IonGrid, IonRow, IonButton } from '@ionic/react';
 
 interface Props {
