@@ -1,7 +1,17 @@
-import React from 'react';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonFab, IonFabButton, IonButton, IonPopover, } from '@ionic/react';
+import React from "react";
+import './Tab1.css';
+import {
+  IonContent,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
+  IonFab,
+  IonFabButton,
+  IonButton,
+  IonPopover,
+} from "@ionic/react";
 
-import { Chore } from '../../interfaces/chore-interface';
+import { Chore } from "../../interfaces/chore-interface";
 import { NewChoreForm } from "../../components/form-new-chore";
 import { ChoresList } from "../../components/item-chore-list";
 
@@ -15,9 +25,9 @@ export default class Tab1 extends React.Component<{}, State> {
   state = {
     newChore: {
       key: 1,
-      name: ""
+      name: "",
     },
-    
+
     chores: [],
     showInputPopover: false,
   };
@@ -27,18 +37,22 @@ export default class Tab1 extends React.Component<{}, State> {
       <>
         <IonHeader>
           <IonToolbar>
-            <IonTitle size="small"> Track your daily chores here! </IonTitle>
+            <IonTitle class="header-title" size="large"> Your daily chores </IonTitle>
           </IonToolbar>
         </IonHeader>
 
         <IonContent>
-          <IonFab horizontal="center" vertical="top" edge={true} slot="fixed">
+          <IonHeader class="header-chore">
+            <IonTitle>Add a new chore:</IonTitle>
+          </IonHeader>
+
+          <IonFab class="new-chore-button" horizontal="center" vertical="top" slot="fixed">
             <IonFabButton size="small" onClick={this.showPopover}>
               +
             </IonFabButton>
           </IonFab>
 
-          <IonPopover 
+          <IonPopover
             backdropDismiss={true}
             isOpen={this.state.showInputPopover}
             onDidDismiss={this.hidePopover}
@@ -46,19 +60,21 @@ export default class Tab1 extends React.Component<{}, State> {
             <IonToolbar>
               <h4> New Chore: </h4>
             </IonToolbar>
-            
             <NewChoreForm
               chore={this.state.newChore}
               onAdd={this.addChore}
               onChange={this.handleChoreChange}
             />
-
             <div>
-              <IonButton expand="block" onClick={this.hidePopover}> Close </IonButton>
-            </div> <br/>
+              <IonButton expand="block" onClick={this.hidePopover}>
+                {" "}
+                Close{" "}
+              </IonButton>
+            </div>{" "}
+            <br />
           </IonPopover>
 
-          <ChoresList chores={this.state.chores} onDelete={this.deleteChore}/>
+          <ChoresList chores={this.state.chores} onDelete={this.deleteChore} />
         </IonContent>
       </>
     );
@@ -68,23 +84,23 @@ export default class Tab1 extends React.Component<{}, State> {
     this.setState({
       showInputPopover: true,
     });
-  }
+  };
 
   hidePopover = () => {
     this.setState({
       showInputPopover: false,
     });
-  }
+  };
 
   addChore = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    this.setState(previousState => ({
+    this.setState((previousState) => ({
       newChore: {
         key: previousState.newChore.key + 1,
-        name: ""
+        name: "",
       },
-      chores: [...previousState.chores, previousState.newChore]
+      chores: [...previousState.chores, previousState.newChore],
     }));
   };
 
@@ -92,16 +108,18 @@ export default class Tab1 extends React.Component<{}, State> {
     this.setState({
       newChore: {
         ...this.state.newChore,
-        name: event.target.value
-      }
+        name: event.target.value,
+      },
     });
   };
 
   deleteChore = (taskToDelete: Chore) => {
-    this.setState(previousState => ({
+    this.setState((previousState) => ({
       chores: [
-        ...previousState.chores.filter(chore => chore.key !== taskToDelete.key)
-      ]
+        ...previousState.chores.filter(
+          (chore) => chore.key !== taskToDelete.key
+        ),
+      ],
     }));
   };
-};
+}
