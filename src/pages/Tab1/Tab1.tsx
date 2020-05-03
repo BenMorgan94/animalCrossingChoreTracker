@@ -1,5 +1,5 @@
 import React from "react";
-import './Tab1.css';
+import "./Tab1.css";
 import {
   IonContent,
   IonHeader,
@@ -37,7 +37,10 @@ export default class Tab1 extends React.Component<{}, State> {
       <>
         <IonHeader>
           <IonToolbar>
-            <IonTitle class="header-title" size="large"> Your daily chores </IonTitle>
+            <IonTitle class="header-title" size="large">
+              {" "}
+              Your daily chores{" "}
+            </IonTitle>
           </IonToolbar>
         </IonHeader>
 
@@ -46,7 +49,12 @@ export default class Tab1 extends React.Component<{}, State> {
             <IonTitle>Add a new chore:</IonTitle>
           </IonHeader>
 
-          <IonFab class="new-chore-button" horizontal="center" vertical="top" slot="fixed">
+          <IonFab
+            class="new-chore-button"
+            horizontal="center"
+            vertical="top"
+            slot="fixed"
+          >
             <IonFabButton size="small" onClick={this.showPopover}>
               +
             </IonFabButton>
@@ -57,7 +65,11 @@ export default class Tab1 extends React.Component<{}, State> {
             isOpen={this.state.showInputPopover}
             onDidDismiss={this.hidePopover}
           >
-            <IonIcon class="close-icon" name="close" onClick={this.hidePopover}/>
+            <IonIcon
+              class="close-icon"
+              name="close"
+              onClick={this.hidePopover}
+            />
             <NewChoreForm
               chore={this.state.newChore}
               onAdd={this.addChore}
