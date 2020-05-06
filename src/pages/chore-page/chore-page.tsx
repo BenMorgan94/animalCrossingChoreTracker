@@ -1,5 +1,5 @@
 import React from "react";
-import "./Tab1.css";
+import "./chore-page.css";
 import {
   IonContent,
   IonHeader,
@@ -21,7 +21,7 @@ interface State {
   showInputPopover: boolean;
 }
 
-export default class Tab1 extends React.Component<{}, State> {
+export default class ChorePage extends React.Component<{}, State> {
   state = {
     newChore: {
       key: 1,
