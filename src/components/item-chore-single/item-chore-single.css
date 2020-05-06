@@ -3,3 +3,19 @@
     justify-content: space-between;
     align-items: center;
 }
+
+#chore-container {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.chore-checkbox {
+    min-width: 1.625rem;
+}
+
+#chore-name {
+    padding: 0 0.5rem 0 0.5rem;
+    word-break: break-word;
+}

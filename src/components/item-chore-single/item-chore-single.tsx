@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import "./item-chore-single.css";
-import { IonGrid, IonCol, IonRow, IonIcon, IonList } from "@ionic/react";
+import { IonGrid, IonCol, IonRow, IonIcon, IonList, IonCheckbox } from "@ionic/react";
 import { Chore } from "../../interfaces/chore-interface";
 
 interface Props {
@@ -21,8 +21,10 @@ export const ChoreListItem: FunctionComponent<Props> = ({
       <IonGrid>
         <IonRow>
           <IonCol class="chore-column">
-            {/* <IonCheckbox /> */}
-            {chore.name}
+            <div id="chore-container">
+              <IonCheckbox class="chore-checkbox" />
+              <div id="chore-name">{chore.name}</div>
+            </div>
             <IonIcon name="close" onClick={onClick} />
           </IonCol>
         </IonRow>
