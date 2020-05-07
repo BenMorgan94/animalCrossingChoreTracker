@@ -1,14 +1,14 @@
 import React from "react";
 import { IonContent, IonHeader, IonTitle, IonToolbar } from "@ionic/react";
 
-export default class LoginPage extends React.Component<{}> {
+export default class RegisterPage extends React.Component<{}> {
   render() {
     return (
       <IonContent>
         <IonHeader>
           <IonToolbar>
             {" "}
-            <IonTitle>Login</IonTitle>
+            <IonTitle>Register</IonTitle>
           </IonToolbar>
         </IonHeader>
       </IonContent>

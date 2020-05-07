@@ -6,8 +6,9 @@ import {
   IonPage
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import ChorePage from './pages/chore/chore-page';
 import LoginPage from './pages/login/login-page';
+import RegisterPage from './pages/login/login-page';
+import ChorePage from './pages/chore/chore-page';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -33,8 +34,9 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonPage>
         <IonRouterOutlet>
-          <Route path="/chore-page" component={ChorePage} exact={true} />
           <Route path="/login-page" component={LoginPage} exact={true} />
+          <Route path="/register-page" component={RegisterPage} exact={true} />
+          <Route path="/chore-page" component={ChorePage} exact={true} />
           <Route path="/" render={() => <Redirect to="/login-page" />} exact={true} />
         </IonRouterOutlet>
       </IonPage>
