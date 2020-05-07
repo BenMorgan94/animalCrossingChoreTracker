@@ -7,7 +7,7 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import LoginPage from './pages/login/login-page';
-import RegisterPage from './pages/login/login-page';
+import RegisterPage from './pages/register/register-page';
 import ChorePage from './pages/chore/chore-page';
 
 /* Core CSS required for Ionic components to work properly */
