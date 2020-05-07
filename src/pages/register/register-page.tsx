@@ -16,6 +16,7 @@ const Register: React.FC = () => {
   const [cPassword, setCPassword] = useState("");
 
   function registerUser() {
+    window.location.href = "login-page";
     console.log(username, password, cPassword);
   }
 
@@ -23,25 +24,37 @@ const Register: React.FC = () => {
     <IonPage id="main-content">
       <IonToolbar>
         {" "}
-        <IonTitle>Register</IonTitle>
+        <IonTitle class="register-header">Register</IonTitle>
       </IonToolbar>
       <IonContent scrollY={false}>
-        <IonInput
-          placeholder="Username"
-          onIonChange={(e: any) => setUsername(e?.target.value)}
-        />
-        <IonInput
-          placeholder="Password"
-          onIonChange={(e: any) => setPassword(e?.target.value)}
-        />
-        <IonInput
-          placeholder="Confirm Password"
-          onIonChange={(e: any) => setCPassword(e?.target.value)}
-        />
-        <IonButton expand="block" onClick={registerUser}>
-          Register
-        </IonButton>
-        <Link to="/login-page">Already have an account?</Link>
+        <div id="username-container">
+          <IonInput
+            placeholder="Username"
+            onIonChange={(e: any) => setUsername(e?.target.value)}
+          />
+        </div>
+        <div id="password-container">
+          <IonInput
+            type="password"
+            placeholder="Password"
+            onIonChange={(e: any) => setPassword(e?.target.value)}
+          />
+        </div>
+        <div id="confirm-password-container">
+          <IonInput
+            type="password"
+            placeholder="Confirm Password"
+            onIonChange={(e: any) => setCPassword(e?.target.value)}
+          />
+        </div>
+        <div id="register-button-container">
+          <IonButton disabled={username.length && password.length && cPassword.length > 0 ? false : true} expand="block" onClick={registerUser}>
+            Register
+          </IonButton>
+        </div>
+        <div id="return-login-container">
+          <Link to="/login-page">Already have an account?</Link>
+        </div>
       </IonContent>
     </IonPage>
   );

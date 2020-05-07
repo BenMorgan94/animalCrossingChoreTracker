@@ -2,3 +2,30 @@
     height: 100%;
     padding: 12.5rem 3.125rem;
 }
+
+.register-header {
+    font-size: 2rem;
+    padding: 0 0 1rem 0;
+}
+
+#username-container {
+    padding: 0.5rem 0;
+}
+
+#password-container {
+    padding: 0.5rem 0;
+}
+
+#confirm-password-container {
+    padding: 0.5rem 0;
+}
+
+#register-button-container {
+    padding: 1rem 0;
+}
+
+#return-login-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 0.5rem;
+}
