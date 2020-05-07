@@ -9,8 +9,10 @@ import {
   IonFabButton,
   IonPopover,
   IonIcon,
+  IonButton,
 } from "@ionic/react";
 
+import { list } from "ionicons/icons";
 import { Chore } from "../../interfaces/chore-interface";
 import { NewChoreForm } from "../../components/form-new-chore/form-new-chore";
 import { ChoresList } from "../../components/item-chore-list/item-chore-list";
@@ -37,6 +39,9 @@ export default class ChorePage extends React.Component<{}, State> {
       <>
         <IonHeader>
           <IonToolbar>
+            <IonButton size="small" fill="clear">
+              <IonIcon class="menu-icon" slot="start" icon={list} />
+            </IonButton>
             <IonTitle class="header-title" size="large">
               {" "}
               Your daily chores{" "}

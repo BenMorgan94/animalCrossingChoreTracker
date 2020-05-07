@@ -1,3 +1,8 @@
+.menu-icon {
+    font-size: 1.75rem;
+    color: black;
+}
+
 .header-title {
     display: flex;
     align-items: center;
