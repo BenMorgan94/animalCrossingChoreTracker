@@ -7,7 +7,6 @@ import {
   IonPage,
   IonInput,
   IonButton,
-  IonRippleEffect,
 } from "@ionic/react";
 import { Link } from "react-router-dom";
 
