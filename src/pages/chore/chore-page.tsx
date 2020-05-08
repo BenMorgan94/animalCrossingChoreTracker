@@ -10,6 +10,10 @@ import {
   IonPopover,
   IonIcon,
   IonButton,
+  IonMenuButton,
+  IonMenu,
+  IonList,
+  IonItem,
 } from "@ionic/react";
 
 import { list } from "ionicons/icons";
@@ -39,9 +43,7 @@ export default class ChorePage extends React.Component<{}, State> {
       <>
         <IonHeader>
           <IonToolbar>
-            <IonButton size="small" fill="clear">
-              <IonIcon class="menu-icon" slot="start" icon={list} />
-            </IonButton>
+            <IonMenuButton menu="side-menu" slot="start" color="dark" />
             <IonTitle class="header-title" size="large">
               {" "}
               Your daily chores{" "}
@@ -49,7 +51,23 @@ export default class ChorePage extends React.Component<{}, State> {
           </IonToolbar>
         </IonHeader>
 
-        <IonContent>
+        <IonMenu menuId="side-menu" contentId="content" side="start">
+          <IonHeader>
+            <IonToolbar>
+              <IonTitle>Menu</IonTitle>
+            </IonToolbar>
+          </IonHeader>
+          <IonContent>
+            <IonList>
+              <IonItem>Chore list</IonItem>
+              <IonItem>Calendar</IonItem>
+              <IonItem>Help</IonItem>
+              <IonItem>Logout</IonItem>
+            </IonList>
+          </IonContent>
+        </IonMenu>
+
+        <IonContent id="content">
           <IonHeader class="header-chore">
             <IonTitle>Add a new chore:</IonTitle>
           </IonHeader>
@@ -61,9 +79,7 @@ export default class ChorePage extends React.Component<{}, State> {
             slot="fixed"
           >
             <IonFabButton color="dark" size="small" onClick={this.showPopover}>
-              <div id="add-icon">
-                +
-              </div>
+              <div id="add-icon">+</div>
             </IonFabButton>
           </IonFab>
 
