@@ -9,14 +9,13 @@ import {
   IonFabButton,
   IonPopover,
   IonIcon,
-  IonButton,
   IonMenuButton,
   IonMenu,
   IonList,
   IonItem,
 } from "@ionic/react";
 
-import { list } from "ionicons/icons";
+import { calendarOutline, helpCircleOutline, personOutline, logOutOutline, listCircleOutline } from 'ionicons/icons';
 import { Chore } from "../../interfaces/chore-interface";
 import { NewChoreForm } from "../../components/form-new-chore/form-new-chore";
 import { ChoresList } from "../../components/item-chore-list/item-chore-list";
@@ -59,10 +58,11 @@ export default class ChorePage extends React.Component<{}, State> {
           </IonHeader>
           <IonContent>
             <IonList>
-              <IonItem>Chore list</IonItem>
-              <IonItem>Calendar</IonItem>
-              <IonItem>Help</IonItem>
-              <IonItem>Logout</IonItem>
+              <IonItem>Profile<IonIcon slot="end" icon={personOutline}/></IonItem>
+              <IonItem>Chore list<IonIcon slot="end" icon={listCircleOutline}/></IonItem>
+              <IonItem>Calendar<IonIcon slot="end" icon={calendarOutline}/></IonItem>
+              <IonItem>Help<IonIcon slot="end" icon={helpCircleOutline}/></IonItem>
+              <IonItem onClick={this.logout}>Logout<IonIcon slot="end" icon={logOutOutline}/></IonItem>
             </IonList>
           </IonContent>
         </IonMenu>
@@ -105,6 +105,10 @@ export default class ChorePage extends React.Component<{}, State> {
         </IonContent>
       </>
     );
+  }
+
+  logout = () => {
+    window.location.href = "login-page";
   }
 
   showPopover = () => {
