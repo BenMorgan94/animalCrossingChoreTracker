@@ -60,8 +60,10 @@ export default class ChorePage extends React.Component<{}, State> {
             vertical="top"
             slot="fixed"
           >
-            <IonFabButton size="small" onClick={this.showPopover}>
-              +
+            <IonFabButton color="dark" size="small" onClick={this.showPopover}>
+              <div id="add-icon">
+                +
+              </div>
             </IonFabButton>
           </IonFab>
 

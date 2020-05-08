@@ -17,7 +17,7 @@ export const NewChoreForm: FunctionComponent<Props> = ({ onChange, onAdd }) => (
       </IonRow>{" "}
       <br />
       <IonRow class="new-chore-button-row">
-        <IonButton class="confirm-button" fill="solid" type="submit">
+        <IonButton class="confirm-button" color="dark" fill="solid" type="submit">
           {" "}
           Confirm{" "}
         </IonButton>
