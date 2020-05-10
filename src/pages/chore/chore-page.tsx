@@ -15,7 +15,13 @@ import {
   IonItem,
 } from "@ionic/react";
 
-import { calendarOutline, helpCircleOutline, personOutline, logOutOutline, listCircleOutline } from 'ionicons/icons';
+import {
+  calendarOutline,
+  helpCircleOutline,
+  personOutline,
+  logOutOutline,
+  listCircleOutline,
+} from "ionicons/icons";
 import { Chore } from "../../interfaces/chore-interface";
 import { NewChoreForm } from "../../components/form-new-chore/form-new-chore";
 import { ChoresList } from "../../components/item-chore-list/item-chore-list";
@@ -58,11 +64,26 @@ export default class ChorePage extends React.Component<{}, State> {
           </IonHeader>
           <IonContent>
             <IonList>
-              <IonItem>Profile<IonIcon slot="end" icon={personOutline}/></IonItem>
-              <IonItem>Chore list<IonIcon slot="end" icon={listCircleOutline}/></IonItem>
-              <IonItem>Calendar<IonIcon slot="end" icon={calendarOutline}/></IonItem>
-              <IonItem>Help<IonIcon slot="end" icon={helpCircleOutline}/></IonItem>
-              <IonItem onClick={this.logout}>Logout<IonIcon slot="end" icon={logOutOutline}/></IonItem>
+              <IonItem>
+                Profile
+                <IonIcon slot="end" icon={personOutline} />
+              </IonItem>
+              <IonItem onClick={this.navigateChorers}>
+                Chore list
+                <IonIcon slot="end" icon={listCircleOutline} />
+              </IonItem>
+              <IonItem onClick={this.navigateCalendar}>
+                Calendar
+                <IonIcon slot="end" icon={calendarOutline} />
+              </IonItem>
+              <IonItem>
+                Help
+                <IonIcon slot="end" icon={helpCircleOutline} />
+              </IonItem>
+              <IonItem onClick={this.logout}>
+                Logout
+                <IonIcon slot="end" icon={logOutOutline} />
+              </IonItem>
             </IonList>
           </IonContent>
         </IonMenu>
@@ -109,7 +130,15 @@ export default class ChorePage extends React.Component<{}, State> {
 
   logout = () => {
     window.location.href = "login-page";
-  }
+  };
+
+  navigateChorers = () => {
+    window.location.href = "chore-page";
+  };
+
+  navigateCalendar = () => {
+    window.location.href = "calendar-page";
+  };
 
   showPopover = () => {
     this.setState({
