@@ -1,5 +1,7 @@
 import React from "react";
 import "./calendar-page.css";
+import Calendar from "react-calendar";
+import 'react-calendar/dist/Calendar.css';
 import {
   IonHeader,
   IonToolbar,
@@ -77,7 +79,7 @@ const CalendarPage: React.FC = () => {
       </IonMenu>
 
       <IonContent id="content">
-
+        <Calendar></Calendar>
       </IonContent>
     </>
   );

@@ -17,6 +17,7 @@
     "@types/react-router-dom": "^5.1.3",
     "ionicons": "^5.0.0",
     "react": "^16.13.0",
+    "react-calendar": "^3.0.1",
     "react-dom": "^16.13.0",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
@@ -45,7 +46,8 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "2.0.1"
+    "@capacitor/cli": "2.0.1",
+    "@types/react-calendar": "^3.0.1"
   },
   "description": "An Ionic project"
 }
