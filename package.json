@@ -48,6 +48,7 @@
   },
   "devDependencies": {
     "@capacitor/cli": "2.0.1",
+    "@types/firebase": "^3.2.1",
     "@types/react-calendar": "^3.0.1"
   },
   "description": "An Ionic project"
