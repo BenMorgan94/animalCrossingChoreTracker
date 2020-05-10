@@ -8,15 +8,31 @@ import {
   IonInput,
   IonButton,
 } from "@ionic/react";
+import { registerUser } from "../../firebaseConfig";
+import { toast } from "../../toast";
 
 const RegisterPage: React.FC = () => {
-  const [username, setUsername] = useState("");
+  const [email, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [cPassword, setCPassword] = useState("");
 
-  function registerUser() {
+  async function register() {
+    if (password !== cPassword) {
+      return toast("Passwords do not match");
+    }
+    if (email.trim() === "" || password.trim() === "") {
+      return toast("Username and password are required");
+    }
+
+    const result = await registerUser(email, password);
+
+    if (result) {
+      window.location.href = "login-page";
+    }
+  }
+
+  function returnToLogin() {
     window.location.href = "login-page";
-    console.log(username, password, cPassword);
   }
 
   return (
@@ -26,9 +42,9 @@ const RegisterPage: React.FC = () => {
         <IonTitle class="register-header">Register</IonTitle>
       </IonToolbar>
       <IonContent scrollY={false}>
-        <div id="username-container">
+        <div id="email-container">
           <IonInput
-            placeholder="Username"
+            placeholder="Email"
             onIonChange={(e: any) => setUsername(e?.target.value)}
           />
         </div>
@@ -48,16 +64,20 @@ const RegisterPage: React.FC = () => {
         </div>
         <div id="register-button-container">
           <IonButton
-            disabled={username.length && password.length && cPassword.length > 0 ? false : true}
+            disabled={
+              email.length && password.length && cPassword.length > 0
+                ? false
+                : true
+            }
             expand="block"
-            onClick={registerUser}
+            onClick={register}
             color="dark"
           >
             Register
           </IonButton>
         </div>
         <div id="return-login-container">
-          <IonButton fill="clear" color="dark" onClick={registerUser}>
+          <IonButton fill="clear" color="dark" onClick={returnToLogin}>
             Already have an account?
           </IonButton>
         </div>

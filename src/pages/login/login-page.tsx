@@ -8,14 +8,20 @@ import {
   IonInput,
   IonButton,
 } from "@ionic/react";
+import { loginUser } from "../../firebaseConfig";
+import { toast } from "../../toast";
 
 const LoginPage: React.FC = () => {
-  const [username, setUsername] = useState("");
+  const [email, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  function loginUser() {
-    window.location.href = "chore-page";
-    console.log(username, password);
+  async function login() {
+    const result = await loginUser(email, password);
+    if (!result) {
+      toast("Error logging in with your credentials");
+    } else {
+      window.location.href = "chore-page";
+    }
   }
 
   function registerUser() {
@@ -29,9 +35,9 @@ const LoginPage: React.FC = () => {
         <IonTitle class="login-header">Login</IonTitle>
       </IonToolbar>
       <IonContent scrollY={false}>
-        <div id="username-container">
+        <div id="email-container">
           <IonInput
-            placeholder="Username"
+            placeholder="Email"
             onIonChange={(e: any) => setUsername(e?.target.value)}
           />
         </div>
@@ -44,10 +50,10 @@ const LoginPage: React.FC = () => {
         </div>
         <div id="login-button-container">
           <IonButton
-            disabled={username.length && password.length > 0 ? false : true}
+            disabled={email.length && password.length > 0 ? false : true}
             color="dark"
             expand="block"
-            onClick={loginUser}
+            onClick={login}
           >
             Login
           </IonButton>
