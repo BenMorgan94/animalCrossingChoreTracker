@@ -79,7 +79,7 @@ const CalendarPage: React.FC = () => {
       </IonMenu>
 
       <IonContent id="content">
-        <Calendar></Calendar>
+        <Calendar className="calendar"></Calendar>
       </IonContent>
     </>
   );

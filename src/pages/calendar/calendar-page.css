@@ -6,3 +6,20 @@
     font-size: 1.5rem;
     padding: 0 3rem 0 3rem;
 }
+
+.calendar {
+    width: 100% !important;
+    border: none !important;
+}
+
+.react-calendar__tile--now {
+    background: lightgrey !important;
+}
+
+.react-calendar__tile--active:enabled:hover {
+    background: black !important;
+}
+
+.react-calendar__tile--active {
+    background: black !important;
+}
