@@ -19,7 +19,7 @@ import {
   logOutOutline,
 } from "ionicons/icons";
 
-const Calendar: React.FC = () => {
+const CalendarPage: React.FC = () => {
   function navigateCalendar() {
     window.location.href = "calendar-page";
   }
@@ -83,4 +83,4 @@ const Calendar: React.FC = () => {
   );
 };
 
-export default Calendar;
+export default CalendarPage;

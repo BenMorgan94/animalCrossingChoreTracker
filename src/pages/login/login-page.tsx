@@ -9,7 +9,7 @@ import {
   IonButton,
 } from "@ionic/react";
 
-const Login: React.FC = () => {
+const LoginPage: React.FC = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -62,4 +62,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default LoginPage;
