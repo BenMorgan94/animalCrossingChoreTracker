@@ -8,7 +8,6 @@ import {
   IonInput,
   IonButton,
 } from "@ionic/react";
-import { Link } from "react-router-dom";
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState("");
@@ -17,6 +16,10 @@ const Login: React.FC = () => {
   function loginUser() {
     window.location.href = "chore-page";
     console.log(username, password);
+  }
+
+  function registerUser() {
+    window.location.href = "register-page";
   }
 
   return (
@@ -42,6 +45,7 @@ const Login: React.FC = () => {
         <div id="login-button-container">
           <IonButton
             disabled={username.length && password.length > 0 ? false : true}
+            color="dark"
             expand="block"
             onClick={loginUser}
           >
@@ -49,7 +53,9 @@ const Login: React.FC = () => {
           </IonButton>
         </div>
         <div id="register-container">
-          <Link to="/register-page">Register for an account</Link>
+          <IonButton fill="clear" color="dark" onClick={registerUser}>
+            Register for an account
+          </IonButton>
         </div>
       </IonContent>
     </IonPage>

@@ -8,7 +8,6 @@ import {
   IonInput,
   IonButton,
 } from "@ionic/react";
-import { Link } from "react-router-dom";
 
 const Register: React.FC = () => {
   const [username, setUsername] = useState("");
@@ -48,12 +47,19 @@ const Register: React.FC = () => {
           />
         </div>
         <div id="register-button-container">
-          <IonButton disabled={username.length && password.length && cPassword.length > 0 ? false : true} expand="block" onClick={registerUser}>
+          <IonButton
+            disabled={username.length && password.length && cPassword.length > 0 ? false : true}
+            expand="block"
+            onClick={registerUser}
+            color="dark"
+          >
             Register
           </IonButton>
         </div>
         <div id="return-login-container">
-          <Link to="/login-page">Already have an account?</Link>
+          <IonButton fill="clear" color="dark" onClick={registerUser}>
+            Already have an account?
+          </IonButton>
         </div>
       </IonContent>
     </IonPage>
