@@ -9,7 +9,6 @@ import {
   IonButton,
 } from "@ionic/react";
 import { loginUser } from "../../firebaseConfig";
-import { toast } from "../../toast";
 
 const LoginPage: React.FC = () => {
   const [email, setUsername] = useState("");
@@ -17,11 +16,9 @@ const LoginPage: React.FC = () => {
 
   async function login() {
     const result = await loginUser(email, password);
-    if (!result) {
-      toast("Error logging in with your credentials");
-    } else {
+    if (result) {
       window.location.href = "chore-page";
-    }
+   }
   }
 
   function registerUser() {
