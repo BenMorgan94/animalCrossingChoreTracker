@@ -1,5 +1,6 @@
 import React from "react";
 import "./chore-page.css";
+import { db } from "../../firebaseConfig";
 import {
   IonContent,
   IonHeader,
@@ -30,6 +31,7 @@ interface State {
   newChore: Chore;
   chores: Chore[];
   showInputPopover: boolean;
+  storedChoresData: any[];
 }
 
 export default class ChorePage extends React.Component<{}, State> {
@@ -37,11 +39,26 @@ export default class ChorePage extends React.Component<{}, State> {
     newChore: {
       key: 1,
       name: "",
+      done: false,
     },
 
     chores: [],
     showInputPopover: false,
+    storedChoresData: [],
   };
+
+  componentWillMount() {
+    db.collection("chores")
+      .get()
+      .then((querySnapshot) => {
+        this.setState({
+          storedChoresData: querySnapshot.docs.map((doc) => doc.data()),
+        });
+        this.setState({
+          chores: [...this.state.storedChoresData],
+        })
+      });
+  }
 
   render() {
     return (
@@ -159,9 +176,16 @@ export default class ChorePage extends React.Component<{}, State> {
       newChore: {
         key: previousState.newChore.key + 1,
         name: "",
+        done: false,
       },
       chores: [...previousState.chores, previousState.newChore],
     }));
+
+    db.collection("chores").add({
+      done: this.state.newChore.done,
+      key: this.state.newChore.key,
+      name: this.state.newChore.name,
+    })
   };
 
   handleChoreChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -173,11 +197,11 @@ export default class ChorePage extends React.Component<{}, State> {
     });
   };
 
-  deleteChore = (taskToDelete: Chore) => {
+  deleteChore = (choreToDelete: Chore) => {
     this.setState((previousState) => ({
       chores: [
         ...previousState.chores.filter(
-          (chore) => chore.key !== taskToDelete.key
+          (chore) => chore.key !== choreToDelete.key,
         ),
       ],
     }));

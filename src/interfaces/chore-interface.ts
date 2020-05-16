@@ -1,4 +1,5 @@
 export interface Chore {
     key: number;
-    name: string;
+    name?: string;
+    done?: boolean;
  }

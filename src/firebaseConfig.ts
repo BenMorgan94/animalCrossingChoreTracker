@@ -12,7 +12,7 @@ const config = {
   measurementId: "G-3347FR5XDG",
 };
 
-firebase.initializeApp(config);
+const app = firebase.initializeApp(config);
 
 export async function loginUser(email: string, password: string) {
   try {
@@ -39,3 +39,5 @@ export async function registerUser(email: string, password: string) {
     return false;
   }
 }
+
+export const db = app.firestore();

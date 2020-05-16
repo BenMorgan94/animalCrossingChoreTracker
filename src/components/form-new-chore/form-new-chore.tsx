@@ -9,15 +9,15 @@ interface Props {
   chore: Chore;
 }
 
-export const NewChoreForm: FunctionComponent<Props> = ({ onChange, onAdd }) => (
+export const NewChoreForm: FunctionComponent<Props> = ({ onChange, onAdd, chore }) => (
   <form onSubmit={onAdd}>
     <IonGrid>
       <IonRow>
-        <input placeholder="Enter new chore here:" onChange={onChange} />
+        <input  placeholder="Enter new chore here:" onChange={onChange} />
       </IonRow>{" "}
       <br />
       <IonRow class="new-chore-button-row">
-        <IonButton class="confirm-button" color="dark" fill="solid" type="submit">
+        <IonButton disabled={chore.name === ""} class="confirm-button" color="dark" fill="solid" type="submit">
           {" "}
           Confirm{" "}
         </IonButton>
