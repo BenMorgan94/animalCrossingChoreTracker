@@ -32,6 +32,7 @@ interface State {
   chores: Chore[];
   showInputPopover: boolean;
   storedChoresData: any[];
+  inputValue: string;
 }
 
 export default class ChorePage extends React.Component<{}, State> {
@@ -45,6 +46,7 @@ export default class ChorePage extends React.Component<{}, State> {
     chores: [],
     showInputPopover: false,
     storedChoresData: [],
+    inputValue: "",
   };
 
   componentWillMount() {
@@ -135,6 +137,7 @@ export default class ChorePage extends React.Component<{}, State> {
               chore={this.state.newChore}
               onAdd={this.addChore}
               onChange={this.handleChoreChange}
+              inputValue={this.state.inputValue}
             />
           </IonPopover>
           <br />
@@ -179,6 +182,7 @@ export default class ChorePage extends React.Component<{}, State> {
         done: false,
       },
       chores: [...previousState.chores, previousState.newChore],
+      inputValue: '',
     }));
 
     db.collection("chores").add({
@@ -194,6 +198,7 @@ export default class ChorePage extends React.Component<{}, State> {
         ...this.state.newChore,
         name: event.target.value,
       },
+      inputValue: event.target.value,
     });
   };
 
