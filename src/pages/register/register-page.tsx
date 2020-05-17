@@ -36,7 +36,7 @@ const RegisterPage: React.FC = () => {
   }
 
   return (
-    <IonPage id="main-content">
+    <IonPage id="main-register-content">
       <IonToolbar>
         {" "}
         <IonTitle class="register-header">Register</IonTitle>
@@ -44,12 +44,14 @@ const RegisterPage: React.FC = () => {
       <IonContent scrollY={false}>
         <div id="email-container">
           <IonInput
+            class="email-input"
             placeholder="Email"
             onIonChange={(e: any) => setUsername(e?.target.value)}
           />
         </div>
         <div id="password-container">
           <IonInput
+            class="password-input"
             type="password"
             placeholder="Password"
             onIonChange={(e: any) => setPassword(e?.target.value)}
@@ -57,6 +59,7 @@ const RegisterPage: React.FC = () => {
         </div>
         <div id="confirm-password-container">
           <IonInput
+            class="password-input"
             type="password"
             placeholder="Confirm Password"
             onIonChange={(e: any) => setCPassword(e?.target.value)}

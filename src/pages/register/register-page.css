@@ -1,4 +1,4 @@
-#main-content {
+#main-register-content {
     height: 100%;
     padding: 12.5rem 3.125rem;
 }
@@ -12,12 +12,24 @@
     padding: 0.5rem 0;
 }
 
+.email-input {
+    background: #F1F1F1;
+    border-radius: 10px 10px 10px 10px;
+    --padding-start: 12px;
+}
+
 #password-container {
     padding: 0.5rem 0;
 }
 
 #confirm-password-container {
     padding: 0.5rem 0;
+}
+
+.password-input {
+    background: #F1F1F1 ;
+    border-radius: 10px 10px 10px 10px;
+    --padding-start: 12px;
 }
 
 #register-button-container {

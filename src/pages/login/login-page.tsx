@@ -7,6 +7,7 @@ import {
   IonPage,
   IonInput,
   IonButton,
+  IonImg,
 } from "@ionic/react";
 import { loginUser } from "../../firebaseConfig";
 
@@ -26,7 +27,8 @@ const LoginPage: React.FC = () => {
   }
 
   return (
-    <IonPage id="main-content">
+    <IonPage id="main-login-content">
+      <IonImg class="animal-image" alt="no" src="../assets/Animal_Crossing_Logo.png"/>
       <IonToolbar>
         {" "}
         <IonTitle class="login-header">Login</IonTitle>
@@ -34,12 +36,16 @@ const LoginPage: React.FC = () => {
       <IonContent scrollY={false}>
         <div id="email-container">
           <IonInput
+            class="email-input"
+            clearInput
             placeholder="Email"
             onIonChange={(e: any) => setUsername(e?.target.value)}
           />
         </div>
         <div id="password-container">
           <IonInput
+            class="password-input"
+            clearInput
             type="password"
             placeholder="Password"
             onIonChange={(e: any) => setPassword(e?.target.value)}
