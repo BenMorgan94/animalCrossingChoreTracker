@@ -8,13 +8,14 @@ interface Props {
   onAdd: (event: React.FormEvent<HTMLFormElement>) => void;
   chore: Chore;
   inputValue: string;
+  inputId: string;
 }
 
-export const NewChoreForm: FunctionComponent<Props> = ({ onChange, onAdd, chore, inputValue }) => (
+export const NewChoreForm: FunctionComponent<Props> = ({ onChange, onAdd, inputId, chore, inputValue }) => (
   <form onSubmit={onAdd}>
     <IonGrid>
       <IonRow>
-        <input value={inputValue} placeholder="Enter new chore here:" onChange={onChange} />
+        <input id={inputId} value={inputValue} placeholder="Enter new chore here:" onChange={onChange} />
       </IonRow>{" "}
       <br />
       <IonRow class="new-chore-button-row">

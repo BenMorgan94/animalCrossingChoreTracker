@@ -33,6 +33,7 @@ interface State {
   showInputPopover: boolean;
   storedChoresData: any[];
   inputValue: string;
+  inputId: string;
 }
 
 export default class ChorePage extends React.Component<{}, State> {
@@ -47,6 +48,7 @@ export default class ChorePage extends React.Component<{}, State> {
     showInputPopover: false,
     storedChoresData: [],
     inputValue: "",
+    inputId: "input-element",
   };
 
   componentWillMount() {
@@ -127,6 +129,7 @@ export default class ChorePage extends React.Component<{}, State> {
             backdropDismiss={true}
             isOpen={this.state.showInputPopover}
             onDidDismiss={this.hidePopover}
+            onDidPresent={this.focusInput}
           >
             <IonIcon
               class="close-icon"
@@ -138,6 +141,7 @@ export default class ChorePage extends React.Component<{}, State> {
               onAdd={this.addChore}
               onChange={this.handleChoreChange}
               inputValue={this.state.inputValue}
+              inputId={this.state.inputId}
             />
           </IonPopover>
           <br />
@@ -166,9 +170,16 @@ export default class ChorePage extends React.Component<{}, State> {
     });
   };
 
+  focusInput = () => {
+    setTimeout(() => {
+      document.getElementById("input-element")?.focus();
+    }, 1);
+  };
+
   hidePopover = () => {
     this.setState({
       showInputPopover: false,
+      inputValue: "",
     });
   };
 
@@ -182,7 +193,7 @@ export default class ChorePage extends React.Component<{}, State> {
         done: false,
       },
       chores: [...previousState.chores, previousState.newChore],
-      inputValue: '',
+      inputValue: "",
     }));
 
     db.collection("chores").add({
