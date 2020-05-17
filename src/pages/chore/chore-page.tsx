@@ -22,6 +22,7 @@ import {
   personOutline,
   logOutOutline,
   listCircleOutline,
+  trashOutline,
 } from "ionicons/icons";
 import { Chore } from "../../interfaces/chore-interface";
 import { NewChoreForm } from "../../components/form-new-chore/form-new-chore";
@@ -74,6 +75,7 @@ export default class ChorePage extends React.Component<{}, State> {
               {" "}
               Your daily chores{" "}
             </IonTitle>
+            <IonIcon onClick={this.deleteAllChores} class="delete-icon" size="medium" slot="end" icon={trashOutline} />
           </IonToolbar>
         </IonHeader>
 

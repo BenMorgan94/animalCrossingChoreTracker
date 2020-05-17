@@ -1,6 +1,10 @@
 #main-register-content {
     height: 100%;
-    padding: 12.5rem 3.125rem;
+    padding: 7.5rem 3.125rem;
+}
+
+.animal-image {
+    padding-bottom: 3rem;
 }
 
 .register-header {

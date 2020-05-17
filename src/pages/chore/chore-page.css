@@ -7,6 +7,12 @@
     padding: 0 3rem 0.1875rem 3rem;
 }
 
+.delete-icon {
+    height: 2.2rem;
+    width: 1.5rem;
+    padding-right: 0.3rem;
+}
+
 .header-chore {
     padding-top: 2.5rem
 }

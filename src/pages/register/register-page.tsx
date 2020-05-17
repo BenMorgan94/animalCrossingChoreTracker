@@ -7,6 +7,7 @@ import {
   IonPage,
   IonInput,
   IonButton,
+  IonImg,
 } from "@ionic/react";
 import { registerUser } from "../../firebaseConfig";
 import { toast } from "../../toast";
@@ -37,6 +38,7 @@ const RegisterPage: React.FC = () => {
 
   return (
     <IonPage id="main-register-content">
+      <IonImg class="animal-image" alt="no" src="../assets/Animal_Crossing_Logo.png"/>
       <IonToolbar>
         {" "}
         <IonTitle class="register-header">Register</IonTitle>
