@@ -56,7 +56,7 @@ export default class ChorePage extends React.Component<{}, State> {
         });
         this.setState({
           chores: [...this.state.storedChoresData],
-        })
+        });
       });
   }
 
@@ -185,7 +185,7 @@ export default class ChorePage extends React.Component<{}, State> {
       done: this.state.newChore.done,
       key: this.state.newChore.key,
       name: this.state.newChore.name,
-    })
+    });
   };
 
   handleChoreChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -197,11 +197,33 @@ export default class ChorePage extends React.Component<{}, State> {
     });
   };
 
+  deleteAllChores = () => {
+    this.setState(() => ({
+      chores: [],
+    }));
+    db.collection("chores")
+      .get()
+      .then((res) => {
+        res.forEach((element) => {
+          element.ref.delete();
+        });
+      });
+  };
+
   deleteChore = (choreToDelete: Chore) => {
     this.setState((previousState) => ({
       chores: [
         ...previousState.chores.filter(
           (chore) => chore.key !== choreToDelete.key,
+          db
+            .collection("chores")
+            .where("name", "==", choreToDelete.name)
+            .get()
+            .then((res) => {
+              res.forEach((element) => {
+                element.ref.delete();
+              });
+            })
         ),
       ],
     }));
