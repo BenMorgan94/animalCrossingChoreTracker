@@ -14,6 +14,7 @@ import {
   IonMenu,
   IonList,
   IonItem,
+  IonAlert,
 } from "@ionic/react";
 
 import {
@@ -35,6 +36,7 @@ interface State {
   storedChoresData: any[];
   inputValue: string;
   inputId: string;
+  showAlert: boolean;
 }
 
 export default class ChorePage extends React.Component<{}, State> {
@@ -50,6 +52,7 @@ export default class ChorePage extends React.Component<{}, State> {
     storedChoresData: [],
     inputValue: "",
     inputId: "input-element",
+    showAlert: false,
   };
 
   componentWillMount() {
@@ -65,7 +68,7 @@ export default class ChorePage extends React.Component<{}, State> {
       });
   }
 
-    logout = () => {
+  logout = () => {
     window.location.href = "login-page";
   };
 
@@ -77,16 +80,22 @@ export default class ChorePage extends React.Component<{}, State> {
     window.location.href = "calendar-page";
   };
 
+  showAlert = () => {
+    this.setState({
+      showAlert: true,
+    });
+  };
+
+  hideAlert = () => {
+    this.setState({
+      showAlert: false,
+    });
+  };
+
   showPopover = () => {
     this.setState({
       showInputPopover: true,
     });
-  };
-
-  focusInput = () => {
-    setTimeout(() => {
-      document.getElementById("input-element")?.focus();
-    }, 1);
   };
 
   hidePopover = () => {
@@ -94,6 +103,12 @@ export default class ChorePage extends React.Component<{}, State> {
       showInputPopover: false,
       inputValue: "",
     });
+  };
+
+  focusInput = () => {
+    setTimeout(() => {
+      document.getElementById("input-element")?.focus();
+    }, 1);
   };
 
   addChore = (event: React.FormEvent<HTMLFormElement>) => {
@@ -139,7 +154,7 @@ export default class ChorePage extends React.Component<{}, State> {
       });
   };
 
-  // TODO: refactor local deletion - currently limited by keys being the same 
+  // TODO: refactor local deletion - currently limited by keys being the same
   deleteChore = (choreToDelete: Chore) => {
     this.setState((previousState) => ({
       chores: [
@@ -170,11 +185,28 @@ export default class ChorePage extends React.Component<{}, State> {
               Your daily chores{" "}
             </IonTitle>
             <IonIcon
-              onClick={this.deleteAllChores}
+              onClick={this.showAlert}
               class="delete-icon"
               size="medium"
               slot="end"
               icon={trashOutline}
+            />
+            <IonAlert
+              isOpen={this.state.showAlert}
+              onDidDismiss={this.hideAlert}
+              header={"Warning"}
+              message={
+                "This will delete all your chores. Do you wish to continue?"
+              }
+              buttons={[
+                { text: "Cancel" },
+                {
+                  text: "Confirm",
+                  handler: () => {
+                    this.deleteAllChores();
+                  },
+                },
+              ]}
             />
           </IonToolbar>
         </IonHeader>
