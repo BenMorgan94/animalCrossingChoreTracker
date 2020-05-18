@@ -65,6 +65,101 @@ export default class ChorePage extends React.Component<{}, State> {
       });
   }
 
+  logout() {
+    window.location.href = "login-page";
+  };
+
+  navigateChorers() {
+    window.location.href = "chore-page";
+  };
+
+  navigateCalendar() {
+    window.location.href = "calendar-page";
+  };
+
+  showPopover() {
+    this.setState({
+      showInputPopover: true,
+    });
+  };
+
+  focusInput() {
+    setTimeout(() => {
+      document.getElementById("input-element")?.focus();
+    }, 1);
+  };
+
+  hidePopover() {
+    this.setState({
+      showInputPopover: false,
+      inputValue: "",
+    });
+  };
+
+  addChore(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    this.setState((previousState) => ({
+      newChore: {
+        key: previousState.newChore.key + 1,
+        name: "",
+        done: false,
+      },
+      chores: [...previousState.chores, previousState.newChore],
+      inputValue: "",
+    }));
+
+    db.collection("chores").add({
+      done: this.state.newChore.done,
+      key: this.state.newChore.key,
+      name: this.state.newChore.name,
+    });
+  };
+
+
+  handleChoreChange(event: React.ChangeEvent<HTMLInputElement>) {
+    this.setState({
+      newChore: {
+        ...this.state.newChore,
+        name: event.target.value,
+      },
+      inputValue: event.target.value,
+    });
+  };
+
+  deleteAllChores() {
+    this.setState(() => ({
+      chores: [],
+    }));
+    db.collection("chores")
+      .get()
+      .then((res) => {
+        res.forEach((element) => {
+          element.ref.delete();
+        });
+      });
+  };
+
+  // TODO: refactor local deletion - currently limited by keys being the same
+  deleteChore(choreToDelete: Chore) {
+    this.setState((previousState) => ({
+      chores: [
+        ...previousState.chores.filter(
+          (chore) => chore.key !== choreToDelete.key,
+          db
+            .collection("chores")
+            .where("name", "==", choreToDelete.name)
+            .get()
+            .then((res) => {
+              res.forEach((element) => {
+                element.ref.delete();
+              });
+            })
+        ),
+      ],
+    }));
+  };
+
   render() {
     return (
       <>
@@ -159,98 +254,4 @@ export default class ChorePage extends React.Component<{}, State> {
       </>
     );
   }
-
-  logout = () => {
-    window.location.href = "login-page";
-  };
-
-  navigateChorers = () => {
-    window.location.href = "chore-page";
-  };
-
-  navigateCalendar = () => {
-    window.location.href = "calendar-page";
-  };
-
-  showPopover = () => {
-    this.setState({
-      showInputPopover: true,
-    });
-  };
-
-  focusInput = () => {
-    setTimeout(() => {
-      document.getElementById("input-element")?.focus();
-    }, 1);
-  };
-
-  hidePopover = () => {
-    this.setState({
-      showInputPopover: false,
-      inputValue: "",
-    });
-  };
-
-  addChore = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    this.setState((previousState) => ({
-      newChore: {
-        key: previousState.newChore.key + 1,
-        name: "",
-        done: false,
-      },
-      chores: [...previousState.chores, previousState.newChore],
-      inputValue: "",
-    }));
-
-    db.collection("chores").add({
-      done: this.state.newChore.done,
-      key: this.state.newChore.key,
-      name: this.state.newChore.name,
-    });
-  };
-
-  handleChoreChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({
-      newChore: {
-        ...this.state.newChore,
-        name: event.target.value,
-      },
-      inputValue: event.target.value,
-    });
-  };
-
-  deleteAllChores = () => {
-    this.setState(() => ({
-      chores: [],
-    }));
-    db.collection("chores")
-      .get()
-      .then((res) => {
-        res.forEach((element) => {
-          element.ref.delete();
-        });
-      });
-  };
-
-  // TODO: refactor local deletion - currently limited by keys being the same 
-  deleteChore = (choreToDelete: Chore) => {
-    this.setState((previousState) => ({
-      chores: [
-        ...previousState.chores.filter(
-          (chore) => chore.key !== choreToDelete.key,
-          db
-            .collection("chores")
-            .where("name", "==", choreToDelete.name)
-            .get()
-            .then((res) => {
-              res.forEach((element) => {
-                element.ref.delete();
-              });
-            })
-        ),
-      ],
-    }));
-  };
 }
