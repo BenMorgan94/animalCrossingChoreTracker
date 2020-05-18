@@ -34,6 +34,11 @@ const CalendarPage: React.FC = () => {
     window.location.href = "login-page";
   }
 
+  function navigateProfile() {
+    window.location.href = "profile-page";
+  };
+
+
   return (
     <>
       <IonHeader>
@@ -54,7 +59,7 @@ const CalendarPage: React.FC = () => {
         </IonHeader>
         <IonContent>
           <IonList>
-            <IonItem>
+            <IonItem onClick={navigateProfile}>
               Profile
               <IonIcon slot="end" icon={personOutline} />
             </IonItem>

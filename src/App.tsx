@@ -8,6 +8,7 @@ import {
 import { IonReactRouter } from '@ionic/react-router';
 import LoginPage from './pages/login/login-page';
 import RegisterPage from './pages/register/register-page';
+import ProfilePage from './pages/profile/profile-page';
 import ChorePage from './pages/chore/chore-page';
 import CalendarPage from './pages/calendar/calendar-page';
 
@@ -37,6 +38,7 @@ const App: React.FC = () => (
         <IonRouterOutlet>
           <Route path="/login-page" component={LoginPage} exact={true} />
           <Route path="/register-page" component={RegisterPage} exact={true} />
+          <Route path="/profile-page" component={ProfilePage} exact={true} />
           <Route path="/chore-page" component={ChorePage} exact={true} />
           <Route path="/calendar-page" component={CalendarPage} exact={true} />
           <Route path="/" render={() => <Redirect to="/login-page" />} exact={true} />

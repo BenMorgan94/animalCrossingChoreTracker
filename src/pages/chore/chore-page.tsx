@@ -72,7 +72,11 @@ export default class ChorePage extends React.Component<{}, State> {
     window.location.href = "login-page";
   };
 
-  navigateChorers = () => {
+  navigateProfile = () => {
+    window.location.href = "profile-page";
+  };
+
+  navigateChores = () => {
     window.location.href = "chore-page";
   };
 
@@ -111,6 +115,7 @@ export default class ChorePage extends React.Component<{}, State> {
     }, 1);
   };
 
+  // TODO: link chores to specific users
   addChore = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -219,11 +224,11 @@ export default class ChorePage extends React.Component<{}, State> {
           </IonHeader>
           <IonContent>
             <IonList>
-              <IonItem>
+              <IonItem onClick={this.navigateProfile}>
                 Profile
                 <IonIcon slot="end" icon={personOutline} />
               </IonItem>
-              <IonItem onClick={this.navigateChorers}>
+              <IonItem onClick={this.navigateChores}>
                 Chore list
                 <IonIcon slot="end" icon={listCircleOutline} />
               </IonItem>
