@@ -28,13 +28,14 @@ export default class ProfilePage extends React.Component<{}> {
     window.location.href = "chore-page";
   }
 
+  navigateProfile() {
+    window.location.href = "profile-page";
+  }
+
   logout() {
     window.location.href = "login-page";
   }
 
-  navigateProfile() {
-    window.location.href = "profile-page";
-  }
   render() {
     return (
       <>
