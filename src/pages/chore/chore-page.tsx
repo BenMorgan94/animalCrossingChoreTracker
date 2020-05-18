@@ -65,38 +65,38 @@ export default class ChorePage extends React.Component<{}, State> {
       });
   }
 
-  logout() {
+    logout = () => {
     window.location.href = "login-page";
   };
 
-  navigateChorers() {
+  navigateChorers = () => {
     window.location.href = "chore-page";
   };
 
-  navigateCalendar() {
+  navigateCalendar = () => {
     window.location.href = "calendar-page";
   };
 
-  showPopover() {
+  showPopover = () => {
     this.setState({
       showInputPopover: true,
     });
   };
 
-  focusInput() {
+  focusInput = () => {
     setTimeout(() => {
       document.getElementById("input-element")?.focus();
     }, 1);
   };
 
-  hidePopover() {
+  hidePopover = () => {
     this.setState({
       showInputPopover: false,
       inputValue: "",
     });
   };
 
-  addChore(event: React.FormEvent<HTMLFormElement>) {
+  addChore = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     this.setState((previousState) => ({
@@ -116,8 +116,7 @@ export default class ChorePage extends React.Component<{}, State> {
     });
   };
 
-
-  handleChoreChange(event: React.ChangeEvent<HTMLInputElement>) {
+  handleChoreChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({
       newChore: {
         ...this.state.newChore,
@@ -127,7 +126,7 @@ export default class ChorePage extends React.Component<{}, State> {
     });
   };
 
-  deleteAllChores() {
+  deleteAllChores = () => {
     this.setState(() => ({
       chores: [],
     }));
@@ -140,8 +139,8 @@ export default class ChorePage extends React.Component<{}, State> {
       });
   };
 
-  // TODO: refactor local deletion - currently limited by keys being the same
-  deleteChore(choreToDelete: Chore) {
+  // TODO: refactor local deletion - currently limited by keys being the same 
+  deleteChore = (choreToDelete: Chore) => {
     this.setState((previousState) => ({
       chores: [
         ...previousState.chores.filter(
