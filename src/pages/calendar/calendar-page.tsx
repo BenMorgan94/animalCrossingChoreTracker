@@ -1,7 +1,7 @@
 import React from "react";
 import "./calendar-page.css";
 import Calendar from "react-calendar";
-import 'react-calendar/dist/Calendar.css';
+import "react-calendar/dist/Calendar.css";
 import {
   IonHeader,
   IonToolbar,
@@ -22,22 +22,21 @@ import {
 } from "ionicons/icons";
 
 const CalendarPage: React.FC = () => {
-  function navigateCalendar() {
-    window.location.href = "calendar-page";
+  function navigateProfile() {
+    window.location.href = "profile-page";
   }
 
   function navigateChores() {
     window.location.href = "chore-page";
   }
 
+  function navigateCalendar() {
+    window.location.href = "calendar-page";
+  }
+
   function logout() {
     window.location.href = "login-page";
   }
-
-  function navigateProfile() {
-    window.location.href = "profile-page";
-  };
-
 
   return (
     <>

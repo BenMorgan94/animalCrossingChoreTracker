@@ -68,10 +68,6 @@ export default class ChorePage extends React.Component<{}, State> {
       });
   }
 
-  logout = () => {
-    window.location.href = "login-page";
-  };
-
   navigateProfile = () => {
     window.location.href = "profile-page";
   };
@@ -82,6 +78,10 @@ export default class ChorePage extends React.Component<{}, State> {
 
   navigateCalendar = () => {
     window.location.href = "calendar-page";
+  };
+
+  logout = () => {
+    window.location.href = "login-page";
   };
 
   showAlert = () => {

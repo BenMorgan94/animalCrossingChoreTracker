@@ -20,16 +20,15 @@ import {
 } from "ionicons/icons";
 
 export default class ProfilePage extends React.Component<{}> {
-  navigateCalendar() {
-    window.location.href = "calendar-page";
+  navigateProfile() {
+    window.location.href = "profile-page";
   }
 
   navigateChores() {
     window.location.href = "chore-page";
   }
-
-  navigateProfile() {
-    window.location.href = "profile-page";
+  navigateCalendar() {
+    window.location.href = "calendar-page";
   }
 
   logout() {
