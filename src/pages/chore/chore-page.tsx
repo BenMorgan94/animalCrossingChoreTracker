@@ -1,5 +1,6 @@
 import React from "react";
 import "./chore-page.css";
+import "../../theme/variables.css";
 import { db } from "../../firebaseConfig";
 import {
   IonContent,
@@ -15,6 +16,7 @@ import {
   IonList,
   IonItem,
   IonAlert,
+  IonToggle,
 } from "@ionic/react";
 
 import {
@@ -107,6 +109,10 @@ export default class ChorePage extends React.Component<{}, State> {
       showInputPopover: false,
       inputValue: "",
     });
+  };
+  
+  toggleDarkMode = () => {
+    document.body.classList.toggle("dark");
   };
 
   focusInput = () => {
@@ -239,6 +245,10 @@ export default class ChorePage extends React.Component<{}, State> {
               <IonItem>
                 Help
                 <IonIcon slot="end" icon={helpCircleOutline} />
+              </IonItem>
+              <IonItem>
+                Dark mode
+                <IonToggle slot="end" color="dark" onIonChange={this.toggleDarkMode} />
               </IonItem>
               <IonItem onClick={this.logout}>
                 Logout

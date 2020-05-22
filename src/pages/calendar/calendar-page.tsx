@@ -12,6 +12,7 @@ import {
   IonList,
   IonItem,
   IonIcon,
+  IonToggle,
 } from "@ionic/react";
 import {
   personOutline,
@@ -37,6 +38,10 @@ const CalendarPage: React.FC = () => {
   function logout() {
     window.location.href = "login-page";
   }
+
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark");
+  };
 
   return (
     <>
@@ -73,6 +78,10 @@ const CalendarPage: React.FC = () => {
             <IonItem>
               Help
               <IonIcon slot="end" icon={helpCircleOutline} />
+            </IonItem>
+            <IonItem>
+              Dark mode
+              <IonToggle slot="end" color="dark" onIonChange={toggleDarkMode} />
             </IonItem>
             <IonItem onClick={logout}>
               Logout

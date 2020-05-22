@@ -10,6 +10,7 @@ import {
   IonList,
   IonItem,
   IonIcon,
+  IonToggle,
 } from "@ionic/react";
 import {
   personOutline,
@@ -34,6 +35,10 @@ export default class ProfilePage extends React.Component<{}> {
   logout() {
     window.location.href = "login-page";
   }
+
+  toggleDarkMode = () => {
+    document.body.classList.toggle("dark");
+  };
 
   render() {
     return (
@@ -71,6 +76,10 @@ export default class ProfilePage extends React.Component<{}> {
               <IonItem>
                 Help
                 <IonIcon slot="end" icon={helpCircleOutline} />
+              </IonItem>
+              <IonItem>
+                Dark mode
+                <IonToggle slot="end" color="dark" onIonChange={this.toggleDarkMode} />
               </IonItem>
               <IonItem onClick={this.logout}>
                 Logout
