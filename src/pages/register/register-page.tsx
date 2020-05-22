@@ -38,7 +38,7 @@ const RegisterPage: React.FC = () => {
 
   return (
     <IonPage id="main-register-content">
-      <IonImg class="animal-image" alt="no" src="../assets/Animal_Crossing_Logo.png"/>
+      <IonImg class="animal-image" alt="no" src="../assets/Logo.png"/>
       <IonToolbar>
         {" "}
         <IonTitle class="register-header">Register</IonTitle>

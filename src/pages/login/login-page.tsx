@@ -9,7 +9,7 @@ import {
   IonButton,
   IonImg,
 } from "@ionic/react";
-import { loginUser } from "../../firebaseConfig";
+import { loginUser, getUserId } from "../../firebaseConfig";
 
 const LoginPage: React.FC = () => {
   const [email, setUsername] = useState("");
@@ -17,7 +17,9 @@ const LoginPage: React.FC = () => {
 
   async function login() {
     const result = await loginUser(email, password);
+    const user = await getUserId;
     if (result) {
+      console.log(user);
       window.location.href = "chore-page";
    }
   }
@@ -28,7 +30,7 @@ const LoginPage: React.FC = () => {
 
   return (
     <IonPage id="main-login-content">
-      <IonImg class="animal-image" alt="no" src="../assets/Animal_Crossing_Logo.png"/>
+      <IonImg class="animal-image" alt="no" src="../assets/Logo.png"/>
       <IonToolbar>
         {" "}
         <IonTitle class="login-header">Login</IonTitle>
