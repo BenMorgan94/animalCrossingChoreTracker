@@ -15,7 +15,7 @@ export const NewChoreForm: FunctionComponent<Props> = ({ onChange, onAdd, inputI
   <form onSubmit={onAdd}>
     <IonGrid>
       <IonRow>
-        <input id={inputId} value={inputValue} placeholder="Enter new chore here:" onChange={onChange} />
+        <input className="new-chore-input" id={inputId} value={inputValue} placeholder="Enter new chore here:" onChange={onChange} />
       </IonRow>{" "}
       <br />
       <IonRow class="new-chore-button-row">

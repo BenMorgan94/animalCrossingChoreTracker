@@ -1,3 +1,7 @@
+.new-chore-input {
+    outline: none;
+}
+
 .new-chore-button-row {
     display: flex;
     justify-content: center;
