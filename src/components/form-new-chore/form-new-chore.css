@@ -1,5 +1,12 @@
 .new-chore-input {
     outline: none;
+    border: none;
+    padding-left: 8px;
+    background: white;
+}
+
+.new-chore-input.dark-mode {
+    background: black;
 }
 
 .new-chore-button-row {

@@ -115,6 +115,13 @@ export default class ChorePage extends React.Component<{}, State> {
     document.body.classList.toggle("dark");
   };
 
+  toggleInputDarkMode =() => {
+    if (document.body.classList.contains("dark")) {
+      document.getElementById("input-element")?.classList.add("dark-mode");
+      document.getElementById("chore-popover")?.classList.add("dark-mode");
+    }
+  }
+
   focusInput = () => {
     setTimeout(() => {
       document.getElementById("input-element")?.focus();
@@ -275,10 +282,13 @@ export default class ChorePage extends React.Component<{}, State> {
           </IonFab>
 
           <IonPopover
+            id="chore-popover"
+            cssClass="popover"
             backdropDismiss={true}
             isOpen={this.state.showInputPopover}
             onDidDismiss={this.hidePopover}
             onDidPresent={this.focusInput}
+            onWillPresent={this.toggleInputDarkMode}
           >
             <IonIcon
               class="close-icon"
